@@ -8,7 +8,7 @@ cd /path/to/your/domain.com
 php artisan down
 
 # Pull the latest changes from the git repository 
-git pull origin master
+git pull              # (origin master)
 
 # Install/update composer dependecies 
 composer install --no-interaction --prefer-dist --optimize-autoloader
