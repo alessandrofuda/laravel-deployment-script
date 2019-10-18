@@ -1,6 +1,6 @@
 # Laravel Deployment Script
 
-`
+```
 # Change to the project directory 
 cd /path/to/your/domain.com
 
@@ -37,7 +37,9 @@ php artisan config:cache
 # npm run production
 
 # Turn off maintenance mode
-php artisan up `
+php artisan up 
+
+```
 
 
 
