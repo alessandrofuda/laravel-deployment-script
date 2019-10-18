@@ -1,7 +1,7 @@
 # Laravel Deployment Script
 
 ```
-**# Change to the project directory**
+# Change to the project directory
 cd /path/to/your/domain.com
 
 # Turn on maintenance mode 
