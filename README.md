@@ -33,8 +33,11 @@ php artisan config:cache
 ## Install node modules 
 # npm install
 
-# Build assets using Laravel Mix 
+# Build assets using Webpack/Laravel Mix 
 # npm run production
+# BEST PRACTICE:
+# - builds: only into localhost (dev environment with npm & node) &
+# - public/assets/app.js & public/assets/app.css: versioned and pulled from production server (Already compiled).
 
 # Turn off maintenance mode
 php artisan up 
