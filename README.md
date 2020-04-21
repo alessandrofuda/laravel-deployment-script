@@ -30,6 +30,9 @@ php artisan route:cache
 php artisan config:clear 
 php artisan config:cache
 
+# Update storage Simlink
+php artisan storage:link
+
 ## Install node modules 
 # npm install
 
