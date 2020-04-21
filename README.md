@@ -30,7 +30,7 @@ php artisan route:cache
 php artisan config:clear 
 php artisan config:cache
 
-# Update storage Simlink
+# Update storage Simlink (make an absolute path)
 php artisan storage:link
 
 ## Install node modules 
