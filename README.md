@@ -21,17 +21,17 @@ php artisan migrate --force
 
 # Clear caches 
 php artisan cache:clear
+php artisan route:clear
+php artisan config:clear
+php artisan view:clear
 
 # Clear expired password reset tokens 
 php artisan auth:clear-resets
 
-# Clear and cache routes 
-php artisan route:clear 
+# Make caches 
 php artisan route:cache
-
-# Clear and cache config 
-php artisan config:clear 
 php artisan config:cache
+php artisan view:cache
 
 # Update storage Simlink (make an absolute path)
 php artisan storage:link
