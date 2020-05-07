@@ -43,7 +43,7 @@ php artisan storage:link
 # npm run production
 # BEST PRACTICE:
 # - builds: only into localhost (dev environment with npm & node) &
-# - public/assets/app.js & public/assets/app.css: versioned and pulled from production server (Already compiled).
+# - public/assets/app.js & public/assets/app.css: versioned and pulled by production server (Already compiled).
 
 # Turn off maintenance mode
 php artisan up 
