@@ -1,4 +1,4 @@
-# Laravel Deployment Script
+# Laravel Deployment Steps
 
 ```
 # Change to the project directory
