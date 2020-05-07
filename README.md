@@ -28,7 +28,7 @@ php artisan view:clear
 # Clear expired password reset tokens 
 php artisan auth:clear-resets
 
-# Make caches 
+# Clear & Rebuild caches 
 php artisan route:cache
 php artisan config:cache
 php artisan view:cache
