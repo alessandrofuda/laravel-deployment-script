@@ -16,6 +16,9 @@ composer install --no-interaction --prefer-dist --optimize-autoloader
 # Run database migrations 
 php artisan migrate --force
 
+# Force Run Eventual(!) db seeder (ex roles/permission tables or predefined data stored in db)
+# php artisan db::seed (--class=ExampleTableSeeder)  PAY ATTENTION!
+
 # Clear caches 
 php artisan cache:clear
 
