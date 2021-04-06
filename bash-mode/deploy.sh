@@ -36,60 +36,60 @@ error_exit() {
 
 
 echo $((++step))') - Running phpunit tests!'
-./vendor/bin/phpunit || exit 1
+./vendor/bin/phpunit || error_exit $((++step - 1))
 
 
 echo $((++step))') - Maintenance mode'
-php artisan down --message="Deploying in progress. Wait a moment please.."
+php artisan down --message="Deploying in progress. Wait a moment please.." || error_exit $((++step - 1))
 
 
 echo $((++step))') - Pull from repository'
-git pull origin main ||  error_exit $((++step - 1))
+git pull origin main || error_exit $((++step - 1))
 
 
-echo $((++step))') - Composer install'
-composer install --optimize-autoloader --no-dev
+echo $((++step))') - Composer install (without dev dependencies)'
+composer install --optimize-autoloader --no-dev || error_exit $((++step - 1))
 
 
 echo $((++step))') - Regenerate config cache'
-php artisan config:clear
-php artisan config:cache
+php artisan config:clear || error_exit $((++step - 1))
+php artisan config:cache || error_exit $((++step - 1))
 
 
 echo $((++step))') - Regenerate routes cache'
-php artisan route:clear
-php artisan route:cache
+php artisan route:clear || error_exit $((++step - 1))
+php artisan route:cache || error_exit $((++step - 1))
 
 
 echo $((++step))') - Regenerate views caches'
-php artisan cache:clear
-php artisan view:clear
-php artisan view:cache
+php artisan cache:clear || error_exit $((++step - 1))
+php artisan view:clear || error_exit $((++step - 1))
+php artisan view:cache || error_exit $((++step - 1))
 
 
 echo $((++step))') - Clear expired password reset tokens'
-php artisan auth:clear-resets
+php artisan auth:clear-resets || error_exit $((++step - 1))
 
 
 echo $((++step))') - update storage SimLinks (make an absolute path)'
-php artisan storage:link
+php artisan storage:link || error_exit $((++step - 1))
 
 
 echo $((++step))') - Npm install & run (production mode)'
-npm install --production
-npm run prod
+npm install --production || error_exit $((++step - 1))
+npm run prod || error_exit $((++step - 1))
 
 
 echo $((++step))') - Artisan migrate'
-php artisan migrate --force
+php artisan migrate --force || error_exit $((++step - 1))
 
 
 # Force Run Eventual(!) db seeder (ex roles/permission tables or predefined data stored in db)
-# php artisan db::seed (--class=ExampleTableSeeder)  PAY ATTENTION! -- ONLY FOR FIRST deploy !!!!!!!
+# php artisan db::seed (--class=ExampleTableSeeder) || error_exit $((++step - 1)) PAY ATTENTION! -- ONLY FOR FIRST deploy !!!!!!!
 
 
 echo $((++step))') - Turn off Maintenance Mode'
-php artisan up
+php artisan up || error_exit $((++step - 1))
 
 echo $line
 
